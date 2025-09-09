@@ -312,7 +312,7 @@
         branding: {
             logo: '',
             name: '',
-            subText1: 'CHATBOT',
+            subText: 'CHATBOT',
             sendBtnText: 'Verstuur',
             welcomeText: 'Hoi, hoe kan ik je helpen?',
             responseTimeText: 'Onze AI-agent staat 24/7 voor u klaar om u te helpen met al uw vragen.',
@@ -374,7 +374,7 @@
             <img src="${config.branding.logo}" alt="${config.branding.name}">
             <div>
                 <span>${config.branding.name}</span>
-                <span>${config.branding.subtext}</span>
+                <p>${config.branding.subtext}</p>
             </div>
             <button class="close-button">×</button>
         </div>
@@ -396,7 +396,7 @@
                 <img src="${config.branding.logo}" alt="${config.branding.name}">
                 <div>
                     <span>${config.branding.name}</span>
-                    <span>${config.branding.subtext}</span>
+                    <p>${config.branding.subtext}</p>
                 </div>
                 <button class="close-button">×</button>
             </div>
@@ -510,6 +510,8 @@
                 },
                 body: JSON.stringify(messageData)
             });
+
+            console.log(response)
             
             const data = await response.json();
             
