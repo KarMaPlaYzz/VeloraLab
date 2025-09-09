@@ -411,6 +411,8 @@
             }
         }];
 
+        console.log("startNewConversation")
+
         try {
             const response = await fetch(config.webhook.url, {
                 method: 'POST',
@@ -420,15 +422,15 @@
                 body: JSON.stringify(data)
             });
 
-            //const responseData = await response.json();
-            //chatContainer.querySelector('.brand-header').style.display = 'none';
-            //chatContainer.querySelector('.new-conversation').style.display = 'none';
-            //chatInterface.classList.add('active');
+            const responseData = await response.json();
+            chatContainer.querySelector('.brand-header').style.display = 'none';
+            chatContainer.querySelector('.new-conversation').style.display = 'none';
+            chatInterface.classList.add('active');
 
-            //const botMessageDiv = document.createElement('div');
-            //botMessageDiv.className = 'chat-message bot';
-            //botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
-            //messagesContainer.appendChild(botMessageDiv);
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.className = 'chat-message bot';
+            botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
+            messagesContainer.appendChild(botMessageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
