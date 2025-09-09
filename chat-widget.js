@@ -462,6 +462,9 @@
         chatContainer.querySelector('.new-conversation').style.display = 'none';
         chatInterface.classList.add('active');
         
+        // add bot typing
+        console.log("Bot thinking...")
+        
         try {
             const response = await fetch(config.webhook.url, {
                 method: 'POST',
@@ -470,16 +473,11 @@
                 },
                 body: JSON.stringify(initialHelloMessageData)
             });
-
-            // add bot typing
-
-            console.log("Bot thinking...")
             
             const responseData = await response.json();
 
-            console.log("Bot done...")
-            
             // hide bot typing
+            console.log("Bot done...")
 
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'chat-message bot';
@@ -508,6 +506,9 @@
         messagesContainer.appendChild(userMessageDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
+        // add bot typing
+        console.log("Bot thinking...")
+        
         try {
             const response = await fetch(config.webhook.url, {
                 method: 'POST',
@@ -517,15 +518,10 @@
                 body: JSON.stringify(messageData)
             });
 
-            // add bot typing
-            
-            console.log("Bot thinking...")
-            
             const data = await response.json();
 
-            console.log("Bot done...")
-            
             // hide bot typing
+            console.log("Bot done...")
             
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'chat-message bot';
