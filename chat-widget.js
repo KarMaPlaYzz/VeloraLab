@@ -503,7 +503,7 @@
     typingMessageDiv.className = 'chat-message bot';
     typingMessageDiv.innerHTML = botTyping;
     messagesContainer.appendChild(typingMessageDiv);
-    botTyping.querySelector('.typing').style.display = 'none';
+    typingMessageDiv.querySelector('.typing').style.display = 'none';
     
     sendButton.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
