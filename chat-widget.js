@@ -453,7 +453,7 @@
                 <img src="${config.branding.logo}" alt="${config.branding.name}">
                 <div>
                     <span>${config.branding.name}</span>
-                    <p style="margin:0px">${config.branding.subtext}</p>
+                    <p style="margin:0px">${config.branding.subText}</p>
                 </div>
                 <button class="close-button">×</button>
             </div>
