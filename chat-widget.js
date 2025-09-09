@@ -350,7 +350,7 @@
     widgetContainer.style.setProperty('--n8n-title-font-color', config.style.titleFontColor);
     widgetContainer.style.setProperty('--n8n-title-background-color', config.style.titleBackgroundColor);
     widgetContainer.style.setProperty('--n8n-chat-footer-background-color', config.style.chatFooterFontColor);
-    widgetContainer.style.setProperty('--n8n-chat0-footer-font-color', config.style.chatFooterBackgroundColor);
+    widgetContainer.style.setProperty('--n8n-chat-footer-font-color', config.style.chatFooterBackgroundColor);
     widgetContainer.style.setProperty('--n8n-close-button-font-color', config.style.closeButtonFontColor);
 
     const chatContainer = document.createElement('div');
