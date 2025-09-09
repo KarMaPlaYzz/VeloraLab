@@ -74,8 +74,9 @@
         }
 
         .n8n-chat-widget .brand-header img {
-            width: 64px;
-            height: 64px;
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
         }
 
         .n8n-chat-widget .brand-header span {
@@ -313,8 +314,13 @@
             primaryColor: '',
             secondaryColor: '',
             position: 'right',
-            backgroundColor: '#ffffff',
-            fontColor: '#333333'
+            chatBackgroundColor: '#ffffff',
+            chatFontColor: '#333333',
+            titleFontColor: '#333333',
+            titleBackgroundColor: '#333333',
+            chatFooterFontColor: '#333333',
+            chatFooterBackgroundColor: '#333333',
+            closeButtonFontColor: '#333333'
         }
     };
 
@@ -339,8 +345,13 @@
     // Set CSS variables for colors
     widgetContainer.style.setProperty('--n8n-chat-primary-color', config.style.primaryColor);
     widgetContainer.style.setProperty('--n8n-chat-secondary-color', config.style.secondaryColor);
-    widgetContainer.style.setProperty('--n8n-chat-background-color', config.style.backgroundColor);
-    widgetContainer.style.setProperty('--n8n-chat-font-color', config.style.fontColor);
+    widgetContainer.style.setProperty('--n8n-chat-background-color', config.style.chatBackgroundColor);
+    widgetContainer.style.setProperty('--n8n-chat-font-color', config.style.chatFontColor);
+    widgetContainer.style.setProperty('--n8n-title-font-color', config.style.titleFontColor);
+    widgetContainer.style.setProperty('--n8n-title-background-color', config.style.titleBackgroundColor);
+    widgetContainer.style.setProperty('--n8n-chat-footer-background-color', config.style.chatFooterFontColor);
+    widgetContainer.style.setProperty('--n8n-chat0-footer-font-color', config.style.chatFooterBackgroundColor);
+    widgetContainer.style.setProperty('--n8n-close-button-font-color', config.style.closeButtonFontColor);
 
     const chatContainer = document.createElement('div');
     chatContainer.className = `chat-container${config.style.position === 'left' ? ' position-left' : ''}`;
