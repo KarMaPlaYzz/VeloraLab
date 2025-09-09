@@ -457,11 +457,11 @@
                 userId: ""
             }
         };
-        
-        //chatContainer.querySelector('.brand-header').style.display = 'none';
-        //chatContainer.querySelector('.new-conversation').style.display = 'none';
-        //chatInterface.classList.add('active'); 
 
+        chatContainer.querySelector('.brand-header').style.display = 'none';
+        chatContainer.querySelector('.new-conversation').style.display = 'none';
+        chatInterface.classList.add('active');
+        
         try {
             const response = await fetch(config.webhook.url, {
                 method: 'POST',
@@ -470,15 +470,15 @@
                 },
                 body: JSON.stringify(initialHelloMessageData)
             });
-            
-            chatContainer.querySelector('.brand-header').style.display = 'none';
-            chatContainer.querySelector('.new-conversation').style.display = 'none';
-            chatInterface.classList.add('active');
 
             // add bot typing
+
+            console.log("Bot thinking...")
             
             const responseData = await response.json();
 
+            console.log("Bot done...")
+            
             // hide bot typing
 
             const botMessageDiv = document.createElement('div');
@@ -519,7 +519,11 @@
 
             // add bot typing
             
+            console.log("Bot thinking...")
+            
             const data = await response.json();
+
+            console.log("Bot done...")
             
             // hide bot typing
             
