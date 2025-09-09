@@ -533,7 +533,7 @@
         chatInterface.classList.add('active');
         
         // add bot typing
-        botTyping.querySelector('.typing').style.display = 'block';
+        typingMessageDiv.querySelector('.typing').style.display = 'block';
         console.log("Bot thinking...")
         
         try {
@@ -548,7 +548,7 @@
             const responseData = await response.json();
 
             // hide bot typing
-            botTyping.querySelector('.typing').style.display = 'none';
+            typingMessageDiv.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
 
             const botMessageDiv = document.createElement('div');
@@ -579,7 +579,7 @@
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         // add bot typing
-        botTyping.querySelector('.typing').style.display = 'block';
+        typingMessageDiv.querySelector('.typing').style.display = 'block';
         console.log("Bot thinking...")
         
         try {
@@ -594,7 +594,7 @@
             const data = await response.json();
 
             // hide bot typing
-            botTyping.querySelector('.typing').style.display = 'none';
+            typingMessageDiv.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
             
             const botMessageDiv = document.createElement('div');
