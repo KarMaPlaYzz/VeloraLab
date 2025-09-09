@@ -74,14 +74,20 @@
         }
 
         .n8n-chat-widget .brand-header img {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
+            width: 45px;
+            height: 45px;
+            border-radius: 9999px;
         }
 
         .n8n-chat-widget .brand-header span {
-            font-size: 21px;
-            font-weight: 500;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--title--color-font);
+        }
+
+        .n8n-chat-widget .brand-header p {
+            font-size: 0.75rem;
+            font-weight: 700;
             color: var(--title--color-font);
         }
 
@@ -114,7 +120,7 @@
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 9999px;
             cursor: pointer;
             font-size: 16px;
             transition: transform 0.3s;
@@ -173,19 +179,19 @@
             color: white;
             align-self: flex-end;
             border: none;
-            border-radius: 1.5rem 1.5rem 0.5rem 1.5rem
+            border-radius: 1.5rem 1.5rem 0.5rem 1.5rem;
         }
 
         .n8n-chat-widget .chat-message.bot {
             background: var(--chat--color-background);
             border: 1px solid rgba(133, 79, 255, 0.2);
-            border-radius: 0.5rem 1.5rem 1.5rem 1.5rem
+            border-radius: 0.5rem 1.5rem 1.5rem 1.5rem;
             color: var(--chat--color-font);
             align-self: flex-start;
         }
 
         .n8n-chat-widget .chat-input {
-            padding: 0.75rem;
+            padding: 0.55rem;
             background: var(--chat--color-background);
             border-top: 1px solid rgba(133, 79, 255, 0.1);
             display: flex;
@@ -202,7 +208,7 @@
             flex: 1;
             padding: 12px;
             border: 1px solid rgba(133, 79, 255, 0.2);
-            border-radius: 8px;
+            border-radius: 9999px;
             background: var(--chat--color-background);
             color: var(--chat--color-font);
             resize: none;
@@ -219,7 +225,7 @@
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 9999px;
             padding: 0 20px;
             cursor: pointer;
             transition: transform 0.2s;
@@ -306,15 +312,16 @@
         branding: {
             logo: '',
             name: '',
+            subText1: 'CHATBOT',
             sendBtnText: 'Verstuur',
             welcomeText: 'Hoi, hoe kan ik je helpen?',
             responseTimeText: 'Onze AI-agent staat 24/7 voor u klaar om u te helpen met al uw vragen.',
             startBtnText: 'Start conversatie',
             placeholderText: 'Stuur ons een bericht...',
-            poweredBy: {
-                text: 'Powered by Velora',
-                link: 'https://veloralab.nl/'
-            }
+            //poweredBy: {
+            //    text: 'Powered by Velora',
+            //    link: 'https://veloralab.nl/'
+            //}
         },
         style: {
             primaryColor: '',
@@ -365,7 +372,10 @@
     const newConversationHTML = `
         <div class="brand-header">
             <img src="${config.branding.logo}" alt="${config.branding.name}">
-            <span>${config.branding.name}</span>
+            <div>
+                <span>${config.branding.name}</span>
+                <span>${config.branding.subtext}</span>
+            </div>
             <button class="close-button">×</button>
         </div>
         <div class="new-conversation">
@@ -384,19 +394,25 @@
         <div class="chat-interface">
             <div class="brand-header">
                 <img src="${config.branding.logo}" alt="${config.branding.name}">
-                <span>${config.branding.name}</span>
+                <div>
+                    <span>${config.branding.name}</span>
+                    <span>${config.branding.subtext}</span>
+                </div>
                 <button class="close-button">×</button>
             </div>
             <div class="chat-messages"></div>
             <div class="chat-input">
                 <textarea placeholder="${config.branding.placeholderText}" rows="1"></textarea>
-                <button type="submit">${config.branding.sendBtnText}</button>
+                <button type="submit"></button>
             </div>
-            <div class="chat-footer">
-                <a href="${config.branding.poweredBy.link}" target="_blank">${config.branding.poweredBy.text}</a>
-            </div>
+            <!-- Chat footer -->
         </div>
     `;
+    //${config.branding.sendBtnText}
+    
+    //<div class="chat-footer">
+        //<a href="${config.branding.poweredBy.link}" target="_blank">${config.branding.poweredBy.text}</a>
+    //</div>
     
     chatContainer.innerHTML = newConversationHTML + chatInterfaceHTML;
     
