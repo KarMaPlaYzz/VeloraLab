@@ -161,7 +161,7 @@
         .n8n-chat-widget .chat-message {
             padding: 12px 16px;
             margin: 8px 0;
-            border-radius: 12px;
+            /*border-radius: 12px;*/
             max-width: 80%;
             word-wrap: break-word;
             font-size: 14px;
@@ -172,24 +172,30 @@
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             align-self: flex-end;
-            box-shadow: 0 4px 12px rgba(133, 79, 255, 0.2);
             border: none;
+            border-radius: 1.5rem 1.5rem 0.5rem 1.5rem
         }
 
         .n8n-chat-widget .chat-message.bot {
             background: var(--chat--color-background);
             border: 1px solid rgba(133, 79, 255, 0.2);
+            border-radius: 0.5rem 1.5rem 1.5rem 1.5rem
             color: var(--chat--color-font);
             align-self: flex-start;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .n8n-chat-widget .chat-input {
-            padding: 16px;
+            padding: 0.75rem;
             background: var(--chat--color-background);
             border-top: 1px solid rgba(133, 79, 255, 0.1);
             display: flex;
             gap: 8px;
+        }
+
+        .n8n-chat-widget .chat-input svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
 
         .n8n-chat-widget .chat-input textarea {
@@ -400,7 +406,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2.5 21.5l4.5-.838A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.476 0-2.886-.313-4.156-.878l-3.156.586.586-3.156A7.962 7.962 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
         </svg>`;
-    
+
+
     widgetContainer.appendChild(chatContainer);
     widgetContainer.appendChild(toggleButton);
     document.body.appendChild(widgetContainer);
@@ -410,7 +417,13 @@
     const messagesContainer = chatContainer.querySelector('.chat-messages');
     const textarea = chatContainer.querySelector('textarea');
     const sendButton = chatContainer.querySelector('button[type="submit"]');
+    
+    sendButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+            <path d="M568.4 37.7C578.2 34.2 589 36.7 596.4 44C603.8 51.3 606.2 62.2 602.7 72L424.7 568.9C419.7 582.8 406.6 592 391.9 592C377.7 592 364.9 583.4 359.6 570.3L295.4 412.3C290.9 401.3 292.9 388.7 300.6 379.7L395.1 267.3C400.2 261.2 399.8 252.3 394.2 246.7C388.6 241.1 379.6 240.7 373.6 245.8L261.2 340.1C252.1 347.7 239.6 349.7 228.6 345.3L70.1 280.8C57 275.5 48.4 262.7 48.4 248.5C48.4 233.8 57.6 220.7 71.5 215.7L568.4 37.7z"/>
+        </svg>`;
 
+    
     function generateUUID() {
         return crypto.randomUUID();
     }
