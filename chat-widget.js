@@ -492,7 +492,7 @@
     const textarea = chatContainer.querySelector('textarea');
     const sendButton = chatContainer.querySelector('button[type="submit"]');
 
-    const typingMessageDiv = document.createElement('div');
+    //const typingMessageDiv = document.createElement('div');
     const botTyping = ` 
         <div class="typing">
             <span class="circle bouncing"></span>
@@ -500,10 +500,10 @@
             <span class="circle bouncing"></span>
         </div>`;
     
-    typingMessageDiv.className = 'chat-message bot';
-    typingMessageDiv.innerHTML = botTyping;
-    messagesContainer.appendChild(typingMessageDiv);
-    typingMessageDiv.querySelector('.typing').style.display = 'none';
+    //typingMessageDiv.className = 'chat-message bot';
+    //typingMessageDiv.innerHTML = botTyping;
+    //messagesContainer.appendChild(typingMessageDiv);
+    //typingMessageDiv.querySelector('.typing').style.display = 'none';
     
     sendButton.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -533,8 +533,14 @@
         chatInterface.classList.add('active');
         
         // add bot typing
-        typingMessageDiv.querySelector('.typing').style.display = 'block';
+        //typingMessageDiv.querySelector('.typing').style.display = 'block';
         console.log("Bot thinking...")
+        
+        const botMessageDiv = document.createElement('div');
+        botMessageDiv.className = 'chat-message bot';
+        botMessageDiv.textContent = botTyping;
+        messagesContainer.appendChild(botMessageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
         
         try {
             const response = await fetch(config.webhook.url, {
@@ -548,13 +554,10 @@
             const responseData = await response.json();
 
             // hide bot typing
-            typingMessageDiv.querySelector('.typing').style.display = 'none';
+            //typingMessageDiv.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
 
-            const botMessageDiv = document.createElement('div');
-            botMessageDiv.className = 'chat-message bot';
             botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
-            messagesContainer.appendChild(botMessageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
@@ -579,8 +582,14 @@
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         // add bot typing
-        typingMessageDiv.querySelector('.typing').style.display = 'block';
+        //typingMessageDiv.querySelector('.typing').style.display = 'block';
         console.log("Bot thinking...")
+        
+        const botMessageDiv = document.createElement('div');
+        botMessageDiv.className = 'chat-message bot';
+        botMessageDiv.textContent = botTyping;
+        messagesContainer.appendChild(botMessageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
         
         try {
             const response = await fetch(config.webhook.url, {
@@ -594,13 +603,10 @@
             const data = await response.json();
 
             // hide bot typing
-            typingMessageDiv.querySelector('.typing').style.display = 'none';
+            //typingMessageDiv.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
             
-            const botMessageDiv = document.createElement('div');
-            botMessageDiv.className = 'chat-message bot';
             botMessageDiv.textContent = Array.isArray(data) ? data[0].output : data.output;
-            messagesContainer.appendChild(botMessageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
