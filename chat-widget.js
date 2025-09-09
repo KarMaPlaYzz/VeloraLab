@@ -293,11 +293,11 @@
         branding: {
             logo: '',
             name: '',
-            sendBtnText: '',
-            welcomeText: '',
-            responseTimeText: '',
-            startBtnText: '',
-            placeholderText: '',
+            sendBtnText: 'Verstuur',
+            welcomeText: 'Hoi, hoe kan ik je helpen?',
+            responseTimeText: 'Onze AI-agent staat 24/7 voor u klaar om u te helpen met al uw vragen.',
+            startBtnText: 'Start conversatie',
+            placeholderText: 'Stuur ons een bericht...',
             poweredBy: {
                 text: 'Powered by Velora',
                 link: 'https://veloralab.nl/'
@@ -464,7 +464,7 @@
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'chat-message bot';
             botMessageDiv.textContent = Array.isArray(data) ? data[0].output : data.output;
-            messagesContainer.appendChild(botMessageDiv);
+            //messagesContainer.appendChild(botMessageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
