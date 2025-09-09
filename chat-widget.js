@@ -493,12 +493,7 @@
     const sendButton = chatContainer.querySelector('button[type="submit"]');
 
     //const typingMessageDiv = document.createElement('div');
-    const botTyping = ` 
-        <div class="typing">
-            <span class="circle bouncing"></span>
-            <span class="circle bouncing"></span>
-            <span class="circle bouncing"></span>
-        </div>`;
+    const botTyping = `...`;
     
     //typingMessageDiv.className = 'chat-message bot';
     //typingMessageDiv.innerHTML = botTyping;
