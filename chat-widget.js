@@ -290,6 +290,63 @@
         .n8n-chat-widget .chat-footer a:hover {
             opacity: 1;
         }
+          
+        .typing
+          display: block
+          width: 60px
+          height: 40px
+          border-radius: 20px
+          margin: 0 1rem
+          display: flex
+          justify-content: center
+          align-items: center
+          
+          
+        .circle
+          display: block
+          height: 10px
+          width: 10px
+          border-radius: 50%
+          background-color: #8d8d8d
+          margin: 3px
+          
+          &.scaling
+            animation: typing 1000ms ease-in-out infinite
+            animation-delay: 3600ms
+            
+          &.bouncing
+            animation: bounce 1000ms ease-in-out infinite
+            animation-delay: 3600ms
+        
+        .circle:nth-child(1)
+          animation-delay: 0ms
+          
+        .circle:nth-child(2)
+          animation-delay: 333ms
+          
+        .circle:nth-child(3)
+          animation-delay: 666ms
+          
+          
+        @keyframes typing
+          0%
+            transform: scale(1)
+          33%
+            transform: scale(1)
+          50%
+            transform: scale(1.4)
+          100%
+            transform: scale(1)
+          
+        @keyframes bounce
+          0%
+            transform: translateY(0)
+          33%
+            transform: translateY(0)
+          50%
+            transform: translateY(-10px)
+          100%
+            transform: translateY(0)
     `;
 
     // Load Geist font
@@ -400,7 +457,8 @@
                 </div>
                 <button class="close-button">×</button>
             </div>
-            <div class="chat-messages"></div>
+            <div class="chat-messages">
+            </div>
             <div class="chat-input">
                 <textarea placeholder="${config.branding.placeholderText}" rows="1"></textarea>
                 <button type="submit"></button>
@@ -433,12 +491,24 @@
     const messagesContainer = chatContainer.querySelector('.chat-messages');
     const textarea = chatContainer.querySelector('textarea');
     const sendButton = chatContainer.querySelector('button[type="submit"]');
+
+    const typingMessageDiv = document.createElement('div');
+    const botTyping = ` 
+        <div class="typing">
+            <span class="circle bouncing"></span>
+            <span class="circle bouncing"></span>
+            <span class="circle bouncing"></span>
+        </div>`;
+    
+    typingMessageDiv.className = 'chat-message bot';
+    typingMessageDiv.appendChild(botTyping);
+    messagesContainer.appendChild(typingMessageDiv);
+    botTyping.querySelector('.typing').style.display = 'none';
     
     sendButton.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path d="M568.4 37.7C578.2 34.2 589 36.7 596.4 44C603.8 51.3 606.2 62.2 602.7 72L424.7 568.9C419.7 582.8 406.6 592 391.9 592C377.7 592 364.9 583.4 359.6 570.3L295.4 412.3C290.9 401.3 292.9 388.7 300.6 379.7L395.1 267.3C400.2 261.2 399.8 252.3 394.2 246.7C388.6 241.1 379.6 240.7 373.6 245.8L261.2 340.1C252.1 347.7 239.6 349.7 228.6 345.3L70.1 280.8C57 275.5 48.4 262.7 48.4 248.5C48.4 233.8 57.6 220.7 71.5 215.7L568.4 37.7z"/>
         </svg>`;
-
     
     function generateUUID() {
         return crypto.randomUUID();
@@ -463,6 +533,7 @@
         chatInterface.classList.add('active');
         
         // add bot typing
+        botTyping.querySelector('.typing').style.display = 'block';
         console.log("Bot thinking...")
         
         try {
@@ -477,6 +548,7 @@
             const responseData = await response.json();
 
             // hide bot typing
+            botTyping.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
 
             const botMessageDiv = document.createElement('div');
@@ -507,6 +579,7 @@
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         // add bot typing
+        botTyping.querySelector('.typing').style.display = 'block';
         console.log("Bot thinking...")
         
         try {
@@ -521,6 +594,7 @@
             const data = await response.json();
 
             // hide bot typing
+            botTyping.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
             
             const botMessageDiv = document.createElement('div');
