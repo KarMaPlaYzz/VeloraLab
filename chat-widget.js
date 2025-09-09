@@ -446,17 +446,18 @@
 
     async function startNewConversation() {
         currentSessionId = generateUUID();
-        const data = [{
-            action: "loadPreviousSession",
+        
+        initialMessage="Hallo!"
+        const initialHelloMessageData = {
+            action: "sendMessage",
             sessionId: currentSessionId,
             route: config.webhook.route,
+            chatInput: initialMessage,
             metadata: {
                 userId: ""
             }
-        }];
-
-        console.log("startNewConversation")
-
+        };
+        
         //chatContainer.querySelector('.brand-header').style.display = 'none';
         //chatContainer.querySelector('.new-conversation').style.display = 'none';
         //chatInterface.classList.add('active'); 
@@ -467,10 +468,10 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(initialHelloMessageData)
             });
-
             const responseData = await response.json();
+
             chatContainer.querySelector('.brand-header').style.display = 'none';
             chatContainer.querySelector('.new-conversation').style.display = 'none';
             chatInterface.classList.add('active');
@@ -511,9 +512,11 @@
                 body: JSON.stringify(messageData)
             });
 
-            console.log(response)
+            //add bot typing
             
             const data = await response.json();
+            
+            //hide bot typing
             
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'chat-message bot';
