@@ -416,7 +416,7 @@
         const responseData = await response.json();
         chatContainer.querySelector('.brand-header').style.display = 'none';
         chatContainer.querySelector('.new-conversation').style.display = 'none';
-        chatInterface.classList.add('active');
+        chatInterface.classList.add('active'); 
     }
 
     async function sendMessage(message) {
