@@ -501,7 +501,7 @@
         </div>`;
     
     typingMessageDiv.className = 'chat-message bot';
-    typingMessageDiv.appendChild(botTyping);
+    typingMessageDiv.innerHTML = botTyping;
     messagesContainer.appendChild(typingMessageDiv);
     botTyping.querySelector('.typing').style.display = 'none';
     
