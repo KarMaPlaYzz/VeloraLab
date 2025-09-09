@@ -7,8 +7,11 @@
             --chat--color-secondary: var(--n8n-chat-secondary-color, #6b3fd4);
             --chat--color-background: var(--n8n-chat-background-color, #ffffff);
             --chat--color-font: var(--n8n-chat-font-color, #333333);
-            --title--color-font: var(--n8n-title-font-color, #333333);
-            --title--color-background: var(--n8n-title-background-color, #333333);
+            --title--color-font: var(--n8n-title-font-color, #000000);
+            --title--color-background: var(--n8n-title-background-color, #ffffff);
+            --chat-footer--color-background: var(--n8n-chat-footer-background-color, #ffffff);
+            --chat-footer--color-font: var(--n8n-chat-footer-font-color, #000000);
+            --close-button--color-font: var(--n8n-close-button-font-color, #000000);
             font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
@@ -43,6 +46,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            background: var(--title--color-background);
             border-bottom: 1px solid rgba(133, 79, 255, 0.1);
             position: relative;
         }
@@ -54,7 +58,7 @@
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: var(--chat--color-font);
+            color: var(--close-button--color-font);
             cursor: pointer;
             padding: 4px;
             display: flex;
@@ -70,14 +74,14 @@
         }
 
         .n8n-chat-widget .brand-header img {
-            width: 32px;
-            height: 32px;
+            width: 64px;
+            height: 64px;
         }
 
         .n8n-chat-widget .brand-header span {
-            font-size: 18px;
+            font-size: 21px;
             font-weight: 500;
-            color: var(--chat--color-font);
+            color: var(--title--color-font);
         }
 
         .n8n-chat-widget .new-conversation {
@@ -257,12 +261,12 @@
         .n8n-chat-widget .chat-footer {
             padding: 8px;
             text-align: center;
-            background: var(--chat--color-background);
+            background: var(--chat-footer--color-background);
             border-top: 1px solid rgba(133, 79, 255, 0.1);
         }
 
         .n8n-chat-widget .chat-footer a {
-            color: var(--chat--color-primary);
+            color: var(--chat-footer--color-font);
             text-decoration: none;
             font-size: 12px;
             opacity: 0.8;
