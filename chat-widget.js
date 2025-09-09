@@ -470,11 +470,16 @@
                 },
                 body: JSON.stringify(initialHelloMessageData)
             });
-            const responseData = await response.json();
-
+            
             chatContainer.querySelector('.brand-header').style.display = 'none';
             chatContainer.querySelector('.new-conversation').style.display = 'none';
             chatInterface.classList.add('active');
+
+            // add bot typing
+            
+            const responseData = await response.json();
+
+            // hide bot typing
 
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'chat-message bot';
@@ -512,11 +517,11 @@
                 body: JSON.stringify(messageData)
             });
 
-            //add bot typing
+            // add bot typing
             
             const data = await response.json();
             
-            //hide bot typing
+            // hide bot typing
             
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'chat-message bot';
