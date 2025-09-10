@@ -322,9 +322,9 @@
         }
 
         .n8n-chat-widget .chat-footer {
-            padding: 8px;
+            padding: 4px;
             text-align: center;
-            background: var(--chat-footer--color-background);
+            /*background: var(--chat-footer--color-background);*/
             border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
