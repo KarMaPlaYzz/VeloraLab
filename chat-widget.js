@@ -297,7 +297,8 @@
             cursor: pointer;
             box-shadow: 0px 4px 4px 0px rgba(23, 10, 8, 0.08);
             z-index: 999;
-            transition: transform 0.3s;
+            /*transition: transform 0.3s;*/
+            transition: opacity 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -310,8 +311,9 @@
         }
 
         .n8n-chat-widget .chat-toggle:hover {
-            transform: scale(1.05);
-            opacity: .5;
+            /*transform: scale(1.05);*/
+            transform: opacity(0.5);
+            /*opacity: .5;*/
         }
 
         .n8n-chat-widget .chat-toggle svg {
