@@ -145,9 +145,9 @@
         }
 
         .n8n-chat-widget .new-conversation-socials .social svg {
-            width: 16px
-            height: 16px
-            fill: currentColor
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
 
         .n8n-chat-widget .welcome-text {
