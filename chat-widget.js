@@ -29,6 +29,7 @@
             border: 1px solid rgba(0, 0, 0, 0.2);
             overflow: hidden;
             font-family: inherit;
+            opacity: 0;
         }
 
         .n8n-chat-widget .chat-container.position-left {
@@ -39,6 +40,8 @@
         .n8n-chat-widget .chat-container.open {
             display: flex;
             flex-direction: column;
+            opacity: 1;
+            transition: opacity 0.1s ease-out;
         }
 
         .n8n-chat-widget .brand-header {
@@ -297,12 +300,11 @@
             cursor: pointer;
             box-shadow: 0px 4px 4px 0px rgba(23, 10, 8, 0.08);
             z-index: 999;
-            /*transition: transform 0.3s;*/
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 1;
-            transition: opacity 0.2s ease-out;
+            transition: opacity 0.25s ease-out;
         }
 
         .n8n-chat-widget .chat-toggle.position-left {
@@ -311,9 +313,8 @@
         }
 
         .n8n-chat-widget .chat-toggle:hover {
-            /*transform: scale(1.05);*/
             opacity: .5;
-            transition: opacity 0.2s ease-out;
+            transition: opacity 0.25s ease-out;
         }
 
         .n8n-chat-widget .chat-toggle svg {
