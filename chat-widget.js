@@ -652,6 +652,7 @@
         console.log(alreadyHasAChat)
         
         if (alreadyHasAChat === false)
+        {
             currentSessionId = generateUUID();
             alreadyHasAChat = true
             console.log(alreadyHasAChat)
@@ -697,6 +698,7 @@
             } catch (error) {
                 console.error('Error:', error);
             }
+        }
     }
 
     async function sendMessage(message) {
