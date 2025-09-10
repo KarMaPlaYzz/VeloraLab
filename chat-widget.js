@@ -467,13 +467,13 @@
     `;
 
     const socialsArea = chatContainer.querySelector('.new-conversation-socials');
-    if (config.socials.whatsapp != ''):
+    if (config.socials.whatsapp != '')
         socialsArea.innerHTML += `test test`;
 
-    if (config.socials.email != ''):
+    if (config.socials.email != '')
         socialsArea.innerHTML += `asdasdasd`;
 
-    if (config.socials.phone != ''):
+    if (config.socials.phone != '')
         socialsArea.innerHTML += `06456456`;
 
     const chatInterfaceHTML = `
