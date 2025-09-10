@@ -466,16 +466,6 @@
         </div>
     `;
 
-    const socialsArea = newConversationHTML.querySelector('.new-conversation-socials');
-    if (config.socials.whatsapp != '')
-        socialsArea.innerHTML += `test test`;
-
-    if (config.socials.email != '')
-        socialsArea.innerHTML += `asdasdasd`;
-
-    if (config.socials.phone != '')
-        socialsArea.innerHTML += `06456456`;
-
     const chatInterfaceHTML = `
         <div class="chat-interface">
             <div class="brand-header">
@@ -528,6 +518,16 @@
     const messagesContainer = chatContainer.querySelector('.chat-messages');
     const textarea = chatContainer.querySelector('textarea');
     const sendButton = chatContainer.querySelector('button[type="submit"]');
+    
+    const socialsArea = chatContainer.querySelector('.new-conversation-socials');
+    if (config.socials.whatsapp != '')
+        socialsArea.innerHTML += `test test`;
+
+    if (config.socials.email != '')
+        socialsArea.innerHTML += `asdasdasd`;
+
+    if (config.socials.phone != '')
+        socialsArea.innerHTML += `06456456`;
 
     //const typingMessageDiv = document.createElement('div');
     const botTyping = `. . .`;
