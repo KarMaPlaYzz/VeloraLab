@@ -70,7 +70,6 @@
         }
 
         .n8n-chat-widget .back-button {
-            position: absolute;
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
@@ -88,8 +87,8 @@
         }
 
         .n8n-chat-widget .close-button svg {
-            width: 16px;
-            height: 16px;
+            width: 24px;
+            height: 24px;
             fill: currentColor;
         }
 
@@ -770,6 +769,16 @@
     closeButtons.forEach(button => {
         button.addEventListener('click', () => {
             chatContainer.classList.remove('open');
+        });
+    });
+
+    // Add back button handlers
+    const backButton = chatContainer.querySelectorAll('.back-button');
+    backButton.forEach(button => {
+        button.addEventListener('click', () => {
+            //chatContainer.classList.remove('open');
+            chatContainer.querySelector('.brand-header').style.display = 'block';
+            chatContainer.querySelector('.new-conversation').style.display = 'block';
         });
     });
 })();
