@@ -302,6 +302,7 @@
             align-items: center;
             justify-content: center;
             opacity: 1;
+            transition: opacity 0.2s ease-out;
         }
 
         .n8n-chat-widget .chat-toggle.position-left {
@@ -312,7 +313,7 @@
         .n8n-chat-widget .chat-toggle:hover {
             /*transform: scale(1.05);*/
             opacity: .5;
-            transition: opacity 0.5s ease-out;
+            transition: opacity 0.2s ease-out;
         }
 
         .n8n-chat-widget .chat-toggle svg {
