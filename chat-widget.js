@@ -640,54 +640,58 @@
         return crypto.randomUUID();
     }
 
-    async function startNewConversation() {
-        currentSessionId = generateUUID();
-        
-        initialMessage="Hallo!"
-        const initialHelloMessageData = {
-            action: "sendMessage",
-            sessionId: currentSessionId,
-            route: config.webhook.route,
-            chatInput: initialMessage,
-            metadata: {
-                userId: ""
-            }
-        };
+    let alreadyHasAChat = false
 
+    async function startNewConversation() {
         chatContainer.querySelector('.brand-header').style.display = 'none';
         chatContainer.querySelector('.new-conversation').style.display = 'none';
         chatInterface.classList.add('active');
         
-        // add bot typing
-        //typingMessageDiv.querySelector('.typing').style.display = 'block';
-        console.log("Bot thinking...")
-        
-        const botMessageDiv = document.createElement('div');
-        botMessageDiv.className = 'chat-message bot';
-        botMessageDiv.textContent = botTyping;
-        messagesContainer.appendChild(botMessageDiv);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        
-        try {
-            const response = await fetch(config.webhook.url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(initialHelloMessageData)
-            });
+        if (!alreadyHasAChat)
+            currentSessionId = generateUUID();
+            alreadyHasAChat = true
             
-            const responseData = await response.json();
+            initialMessage="Hallo!"
+            const initialHelloMessageData = {
+                action: "sendMessage",
+                sessionId: currentSessionId,
+                route: config.webhook.route,
+                chatInput: initialMessage,
+                metadata: {
+                    userId: ""
+                }
+            };
 
-            // hide bot typing
-            //typingMessageDiv.querySelector('.typing').style.display = 'none';
-            console.log("Bot done...")
-
-            botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
+            // add bot typing
+            //typingMessageDiv.querySelector('.typing').style.display = 'block';
+            console.log("Bot thinking...")
+            
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.className = 'chat-message bot';
+            botMessageDiv.textContent = botTyping;
+            messagesContainer.appendChild(botMessageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        } catch (error) {
-            console.error('Error:', error);
-        }
+            
+            try {
+                const response = await fetch(config.webhook.url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(initialHelloMessageData)
+                });
+                
+                const responseData = await response.json();
+    
+                // hide bot typing
+                //typingMessageDiv.querySelector('.typing').style.display = 'none';
+                console.log("Bot done...")
+    
+                botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            } catch (error) {
+                console.error('Error:', error);
+            }
     }
 
     async function sendMessage(message) {
@@ -779,6 +783,7 @@
             //chatContainer.classList.remove('open');
             chatContainer.querySelector('.brand-header').style.display = 'block';
             chatContainer.querySelector('.new-conversation').style.display = 'block';
+            chatInterface.classList.remove('active');
         });
     });
 })();
