@@ -29,7 +29,6 @@
             border: 1px solid rgba(0, 0, 0, 0.2);
             overflow: hidden;
             font-family: inherit;
-            opacity: 0;
         }
 
         .n8n-chat-widget .chat-container.position-left {
@@ -40,8 +39,6 @@
         .n8n-chat-widget .chat-container.open {
             display: flex;
             flex-direction: column;
-            opacity: 1;
-            transition: opacity 0.1s ease-out;
         }
 
         .n8n-chat-widget .brand-header {
@@ -486,11 +483,11 @@
     
     const newConversationHTML = `
         <div class="brand-header">
-            <img src="${config.branding.logo}" alt="${config.branding.name}">
+            <!--<img src="${config.branding.logo}" alt="${config.branding.name}">
             <div>
                 <span>${config.branding.name}</span>
                 <p style="margin:0px">${config.branding.subText}</p>
-            </div>
+            </div>-->
             <button class="close-button">
                 <!--×--> 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
