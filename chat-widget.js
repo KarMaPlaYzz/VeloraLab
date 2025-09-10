@@ -155,8 +155,8 @@
         }
 
         .n8n-chat-widget .new-conversation-socials .social .app-icon {
-            width: 24px;
-            height: 24px;
+            width: 34px;
+            height: 34px;
             fill: currentColor;
         }
 
