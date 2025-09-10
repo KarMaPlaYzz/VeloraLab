@@ -300,19 +300,22 @@
         }
 
         .n8n-chat-widget .chat-input button {
+            display: flex;
+            align-items: center;
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
             border-radius: 9999px;
             padding: 0 20px;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.2s ease-in-out;
             font-family: inherit;
             font-weight: 500;
         }
 
         .n8n-chat-widget .chat-input button:hover {
             transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
         }
 
         .n8n-chat-widget .chat-toggle {
