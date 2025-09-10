@@ -12,7 +12,7 @@
             --chat-footer--color-background: var(--n8n-chat-footer-background-color, #ffffff);
             --chat-footer--color-font: var(--n8n-chat-footer-font-color, #000000);
             --close-button--color-font: var(--n8n-close-button-font-color, #000000);
-            font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Basier Circle', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui;;
         }
 
         .n8n-chat-widget .chat-container {
@@ -398,10 +398,10 @@
             transform: translateY(0)
     `;
 
-    // Load Geist font
+    // Load Basier Circle font
     const fontLink = document.createElement('link');
     fontLink.rel = 'stylesheet';
-    fontLink.href = 'https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css';
+    fontLink.href = 'https://cdn.jsdelivr.net/gh/KarMaPlaYzz/VeloraLab@main/font/stylesheet.css';
     document.head.appendChild(fontLink);
 
     // Inject styles
