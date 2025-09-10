@@ -102,18 +102,27 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            padding: 20px;
+            padding-bottom: 100px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
             text-align: center;
             width: 100%;
             max-width: 300px;
         }
 
         .n8n-chat-widget .new-conversation-socials {
-            
+            padding-top: 20px;
         }
         
         .n8n-chat-widget .new-conversation-socials .social {
             
+        }
+
+        .n8n-chat-widget .new-conversation-socials .social svg {
+            width: 16px
+            height: 16px
+            fill: currentColor
         }
 
         .n8n-chat-widget .welcome-text {
