@@ -152,6 +152,8 @@
 
         .n8n-chat-widget .new-conversation-socials .social a {
             display: flex;
+            color: var(--chat--color-primary);
+            text-decoration: none;
             align-items: center;
             flex-wrap: wrap;
             justify-content: space-between;
