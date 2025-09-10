@@ -154,7 +154,7 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            justify-contant: space-between;
+            justify-content: space-between;
         }
 
         .n8n-chat-widget .new-conversation-socials .social .app-icon {
