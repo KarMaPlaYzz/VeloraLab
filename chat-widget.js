@@ -642,7 +642,7 @@
         return crypto.randomUUID();
     }
 
-    let alreadyHasAChat = false
+    var alreadyHasAChat = false
 
     async function startNewConversation() {
         chatContainer.querySelector('.brand-header').style.display = 'none';
