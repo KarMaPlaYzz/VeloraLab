@@ -25,7 +25,7 @@
             height: 600px;
             background: var(--chat--color-background);
             border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(0, 0, 0, 0.2);
             overflow: hidden;
             font-family: inherit;
@@ -295,7 +295,7 @@
             color: white;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             z-index: 999;
             transition: transform 0.3s;
             display: flex;
