@@ -70,9 +70,6 @@
         }
 
         .n8n-chat-widget .back-button {
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
             background: none;
             border: none;
             color: var(--close-button--color-font);
@@ -93,8 +90,8 @@
         }
 
         .n8n-chat-widget .back-button svg {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
         }
 
@@ -788,7 +785,7 @@
     backButton.forEach(button => {
         button.addEventListener('click', () => {
             //chatContainer.classList.remove('open');
-            chatContainer.querySelector('.brand-header').style.display = 'block';
+            chatContainer.querySelector('.brand-header').style.removeProperty = 'display';
             chatContainer.querySelector('.new-conversation').style.display = 'block';
             chatInterface.classList.remove('active');
         });
