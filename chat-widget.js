@@ -24,7 +24,7 @@
             width: 380px;
             height: 600px;
             background: var(--chat--color-background);
-            border-radius: 12px;
+            border-radius: 25px;
             box-shadow: 0px 8px 12px 0px rgba(23, 10, 7, 0.12);
             border: 1px solid rgba(0, 0, 0, 0.2);
             overflow: hidden;
@@ -262,6 +262,10 @@
             resize: none;
             font-family: inherit;
             font-size: 14px;
+        }
+
+        .n8n-chat-widget .chat-input textarea:focus {
+            border: 1px solid rgba(255, 255, 0, 1);
         }
 
         .n8n-chat-widget .chat-input textarea::placeholder {
