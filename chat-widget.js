@@ -264,10 +264,6 @@
             font-size: 14px;
         }
 
-        .n8n-chat-widget .chat-input textarea:focus {
-            border: 1px solid rgba(255, 255, 0, 1);
-        }
-
         .n8n-chat-widget .chat-input textarea::placeholder {
             color: var(--chat--color-font);
             opacity: 0.6;
@@ -487,7 +483,7 @@
     chatContainer.className = `chat-container${config.style.position === 'left' ? ' position-left' : ''}`;
     
     const newConversationHTML = `
-        <div class="brand-header">
+        <div class="brand-header" style="padding:24px;">
             <!--<img src="${config.branding.logo}" alt="${config.branding.name}">
             <div>
                 <span>${config.branding.name}</span>
