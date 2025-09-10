@@ -651,7 +651,7 @@
 
         console.log(alreadyHasAChat)
         
-        if (alreadyHasAChat == false)
+        if (alreadyHasAChat === false)
             currentSessionId = generateUUID();
             alreadyHasAChat = true
             console.log(alreadyHasAChat)
