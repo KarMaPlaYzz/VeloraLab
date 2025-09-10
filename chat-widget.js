@@ -386,6 +386,12 @@
             //    link: 'https://veloralab.nl/'
             //}
         },
+        socials: {
+            whatsapp: '',
+            email: '',
+            phone: '',
+            
+        },
         style: {
             primaryColor: '',
             secondaryColor: '',
@@ -456,7 +462,19 @@
             </button>
             <p class="response-text">${config.branding.responseTimeText}</p>
         </div>
+        <div class="new-conversation-socials">
+        </div>
     `;
+
+    const socialsArea = chatContainer.querySelector('.new-conversation-socials');
+    if (config.socials.whatsapp != ''):
+        socialsArea.innerHTML += `test test`;
+
+    if (config.socials.email != ''):
+        socialsArea.innerHTML += `asdasdasd`;
+
+    if (config.socials.phone != ''):
+        socialsArea.innerHTML += `06456456`;
 
     const chatInterfaceHTML = `
         <div class="chat-interface">
