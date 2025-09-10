@@ -153,8 +153,8 @@
         }
 
         .n8n-chat-widget .welcome-text {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 800;
             color: var(--chat--color-font);
             margin-bottom: 24px;
             line-height: 1.3;
@@ -304,6 +304,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            opacity: 1;
         }
 
         .n8n-chat-widget .chat-toggle.position-left {
@@ -313,6 +314,7 @@
 
         .n8n-chat-widget .chat-toggle:hover {
             transform: scale(1.05);
+            opacity: .5;
         }
 
         .n8n-chat-widget .chat-toggle svg {
@@ -646,10 +648,13 @@
         chatContainer.querySelector('.brand-header').style.display = 'none';
         chatContainer.querySelector('.new-conversation').style.display = 'none';
         chatInterface.classList.add('active');
+
+        console.log(alreadyHasAChat)
         
         if (!alreadyHasAChat)
             currentSessionId = generateUUID();
             alreadyHasAChat = true
+            console.log(alreadyHasAChat)
             
             initialMessage="Hallo!"
             const initialHelloMessageData = {
@@ -781,6 +786,7 @@
     backButton.forEach(button => {
         button.addEventListener('click', () => {
             //chatContainer.classList.remove('open');
+            chatContainer.querySelector('.brand-header').style.display = 'block';
             chatContainer.querySelector('.new-conversation').style.display = 'block';
             chatInterface.classList.remove('active');
         });
