@@ -380,7 +380,7 @@
             welcomeText: 'Hoi, hoe kan ik je helpen?',
             responseTimeText: 'Onze AI-agent staat 24/7 voor u klaar om u te helpen met al uw vragen.',
             startBtnText: 'Start conversatie',
-            placeholderText: 'Stuur ons een bericht...',
+            placeholderText: 'Stuur ons een bericht...'
             //poweredBy: {
             //    text: 'Powered by Velora',
             //    link: 'https://veloralab.nl/'
@@ -389,8 +389,7 @@
         socials: {
             whatsapp: '',
             email: '',
-            phone: '',
-            
+            phone: ''
         },
         style: {
             primaryColor: '',
