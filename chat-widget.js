@@ -466,7 +466,7 @@
         </div>
     `;
 
-    const socialsArea = chatContainer.querySelector('.new-conversation-socials');
+    const socialsArea = newConversationHTML.querySelector('.new-conversation-socials');
     if (config.socials.whatsapp != '')
         socialsArea.innerHTML += `test test`;
 
