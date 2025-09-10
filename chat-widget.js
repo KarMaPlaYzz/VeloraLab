@@ -781,7 +781,6 @@
     backButton.forEach(button => {
         button.addEventListener('click', () => {
             //chatContainer.classList.remove('open');
-            chatContainer.querySelector('.brand-header').style.display = 'block';
             chatContainer.querySelector('.new-conversation').style.display = 'block';
             chatInterface.classList.remove('active');
         });
