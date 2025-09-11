@@ -25,7 +25,6 @@
             background: var(--chat--color-background);
             border-radius: 25px;
             box-shadow: 0px 8px 12px 0px rgba(23, 10, 7, 0.12);
-            border: 1px solid rgba(0, 0, 0, 0.2);
             overflow: hidden;
             font-family: inherit;
             visibility: hidden;
