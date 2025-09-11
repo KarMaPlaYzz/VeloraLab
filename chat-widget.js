@@ -29,6 +29,9 @@
             font-family: inherit;
             visibility: hidden;
             opacity: 0;
+            -webkit-opacity: 1;
+            -webkit-transition: -webkit-opacity 0.2s;
+            -webkit-transition: opacity 0.2s;
             transition: visibility 0.2s, opacity 0.2s ease-in-out;
         }
 
@@ -36,7 +39,10 @@
             display: flex;
             flex-direction: column;
             visibility: visible;
+            -webkit-opacity: 1;
             opacity: 1;
+            -webkit-transition: -webkit-opacity 0.2s;
+            -webkit-transition: opacity 0.2s;
             transition: visibility 0.2s, opacity 0.2s ease-in-out;
         }
 
