@@ -480,7 +480,7 @@
             }
         },
         conditions: {
-            displayOnline: true,
+            displayOnline: 'yes',
         },
         socials: {
             whatsapp: '',
@@ -629,7 +629,7 @@
     const sendButton = chatContainer.querySelector('button[type="submit"]');
     
     const onlineBubble = chatContainer.querySelector('brand-header-symbol');
-    if (config.conditions.displayOnline == true)
+    if (config.conditions.displayOnline == 'yes')
         onlineBubble.classList.add('online')
         
     const socialsArea = chatContainer.querySelector('.new-conversation-socials');
