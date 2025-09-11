@@ -33,8 +33,13 @@
 
         @media screen and (max-width: 400px) {
             .n8n-chat-widget .chat-container {
-                width: 85%;
-                height: 80%
+                width: 100%;
+                height: 100%;
+                bottom: 0px;
+                right: 0px;
+                left: 0px;
+                top: 0px;
+                border-radius: 0px;
             }
         }
 
