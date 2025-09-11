@@ -19,8 +19,7 @@
             position: fixed;
             bottom: 100px;
             right: 20px;
-            z-index: 1000;
-            display: none;
+            z-index: 2147483048; /*chat-toggle is one digit lower*/
             width: 380px;
             height: 600px;
             background: var(--chat--color-background);
@@ -29,6 +28,17 @@
             border: 1px solid rgba(0, 0, 0, 0.2);
             overflow: hidden;
             font-family: inherit;
+            visibility: hidden;
+            opacity: 0
+            transition: visibility 0s, opacity 0.2s ease-in-out;
+        }
+
+        .n8n-chat-widget .chat-container.open {
+            display: flex;
+            flex-direction: column;
+            visibility: visible;
+            opacity: 1
+            transition: opacity 0.2s ease-in-out
         }
 
         @media screen and (max-width: 400px) {
@@ -46,11 +56,6 @@
         .n8n-chat-widget .chat-container.position-left {
             right: auto;
             left: 20px;
-        }
-
-        .n8n-chat-widget .chat-container.open {
-            display: flex;
-            flex-direction: column;
         }
 
         .n8n-chat-widget .brand-header {
@@ -364,7 +369,7 @@
             border: none;
             cursor: pointer;
             box-shadow: 0px 4px 4px 0px rgba(23, 10, 8, 0.08);
-            z-index: 999;
+            z-index: 2147483047;
             display: flex;
             align-items: center;
             justify-content: center;
