@@ -474,6 +474,7 @@
             responseTimeText: 'Onze AI-agent staat 24/7 voor u klaar om u te helpen met al uw vragen.',
             startBtnText: 'Start conversatie',
             placeholderText: 'Stuur ons een bericht...',
+            contactText: 'CONTACT',
             poweredBy: {
                 text: 'Powered by Velora',
                 link: 'https://veloralab.nl/'
@@ -561,7 +562,7 @@
                 <p class="response-text">${config.branding.responseTimeText}</p>
             </section>
             <section style="padding-top: 35px; ">
-                <p>CONNECT WITH US</p>
+                <p style="font-weight: 650; font-size: 14px;">${config.branding.contactText}</p>
                 <ul class="new-conversation-socials">
                     
                 </ul>
