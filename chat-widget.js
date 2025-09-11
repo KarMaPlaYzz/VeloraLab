@@ -628,7 +628,7 @@
     const textarea = chatContainer.querySelector('textarea');
     const sendButton = chatContainer.querySelector('button[type="submit"]');
     
-    const onlineBubble = chatContainer.querySelector('brand-header-symbol');
+    const onlineBubble = chatContainer.querySelector('.brand-header-symbol');
     if (config.conditions.displayOnline == 'yes')
         onlineBubble.classList.add('online')
         
