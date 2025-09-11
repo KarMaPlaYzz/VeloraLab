@@ -179,7 +179,7 @@
         
         .n8n-chat-widget .new-conversation-socials .social {
             flex: 1;
-            padding: 0.35rem 0rem 0.35rem 0rem;
+            padding: 0.15rem 0rem 0.15rem 0rem;
         }
 
         .n8n-chat-widget .new-conversation-socials .social a {
