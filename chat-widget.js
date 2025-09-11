@@ -29,7 +29,7 @@
             overflow: hidden;
             font-family: inherit;
             visibility: hidden;
-            opacity: 0
+            opacity: 0;
             transition: visibility 0s, opacity 0.2s ease-in-out;
         }
 
@@ -37,8 +37,8 @@
             display: flex;
             flex-direction: column;
             visibility: visible;
-            opacity: 1
-            transition: opacity 0.2s ease-in-out
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out;
         }
 
         @media screen and (max-width: 400px) {
