@@ -263,16 +263,12 @@
         }
 
         .n8n-chat-widget .chat-interface {
-            visibility: hidden;
             flex-direction: column;
             height: 100%;
-            opacity: 0;
         }
 
         .n8n-chat-widget .chat-interface.active {
             display: flex;
-            visibility: visible;
-            opacity: 1;
         }
 
         .n8n-chat-widget .chat-messages {
