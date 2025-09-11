@@ -30,7 +30,7 @@
             font-family: inherit;
             visibility: hidden;
             opacity: 0;
-            transition: visibility 0s, opacity 0.2s ease-in-out;
+            transition: visibility 0.2s, opacity 0.2s ease-in-out;
         }
 
         .n8n-chat-widget .chat-container.open {
@@ -38,7 +38,7 @@
             flex-direction: column;
             visibility: visible;
             opacity: 1;
-            transition: visibility 0s, opacity 0.2s ease-in-out;
+            transition: visibility 0.2s, opacity 0.2s ease-in-out;
         }
 
         @media screen and (max-width: 400px) {
@@ -267,14 +267,12 @@
             flex-direction: column;
             height: 100%;
             opacity: 0;
-            transition: visibility 0s, opacity 0.2s ease-in-out;
         }
 
         .n8n-chat-widget .chat-interface.active {
             display: flex;
             visibility: visible;
             opacity: 1;
-            transition: visibility 0s, opacity 0.2s ease-in-out;
         }
 
         .n8n-chat-widget .chat-messages {
@@ -676,8 +674,8 @@
     var alreadyHasAChat = false
 
     async function startNewConversation() {
-        chatContainer.querySelector('.brand-header').style.display = 'none';
-        chatContainer.querySelector('.new-conversation').style.display = 'none';
+        chatContainer.querySelector('.brand-header').style.visibility = 'hidden';
+        chatContainer.querySelector('.new-conversation').style.visibility = 'hidden';
         chatInterface.classList.add('active');
 
         console.log(alreadyHasAChat)
