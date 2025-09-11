@@ -31,9 +31,10 @@
             font-family: inherit;
         }
 
-        @media screen and (max-width:37.5rem) {
+        @media screen and (max-width: 400px) {
             .n8n-chat-widget .chat-container {
-                display: block;
+                width: 90%;
+                height: 85%
             }
         }
 
@@ -227,6 +228,12 @@
             font-weight: 500;
             font-family: inherit;
             margin-bottom: 12px;
+        }
+
+        @media screen and (max-width: 400px) {
+            .n8n-chat-widget .new-chat-btn {
+                width: 85%;
+            }
         }
 
         .n8n-chat-widget .new-chat-btn:hover {
