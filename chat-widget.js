@@ -38,7 +38,7 @@
             flex-direction: column;
             visibility: visible;
             opacity: 1;
-            transition: opacity 0.2s ease-in-out;
+            transition: visibility 0s, opacity 0.2s ease-in-out;
         }
 
         @media screen and (max-width: 400px) {
@@ -263,13 +263,18 @@
         }
 
         .n8n-chat-widget .chat-interface {
-            display: none;
+            visibility: hidden;
             flex-direction: column;
             height: 100%;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.2s ease-in-out;
         }
 
         .n8n-chat-widget .chat-interface.active {
             display: flex;
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 0s, opacity 0.2s ease-in-out;
         }
 
         .n8n-chat-widget .chat-messages {
