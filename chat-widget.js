@@ -51,6 +51,22 @@
             position: relative;
         }
 
+        .n8n-chat-widget .brand-header-image {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .n8n-chat-widget .brand-header-image.online {
+            background: #53c353;
+            border-style: solid;
+            border-color: var(--title--color-background);
+            border-radius: 9999px;
+            position: relative;
+            width: 10px;
+            height: 10px;
+            right: 10px;
+        }
+
         .n8n-chat-widget .close-button {
             position: absolute;
             right: 16px;
@@ -463,6 +479,9 @@
                 link: 'https://veloralab.nl/'
             }
         },
+        conditions: {
+            displayOnline: true,
+        },
         socials: {
             whatsapp: '',
             email: '',
@@ -487,6 +506,7 @@
         {
             webhook: { ...defaultConfig.webhook, ...window.ChatWidgetConfig.webhook },
             branding: { ...defaultConfig.branding, ...window.ChatWidgetConfig.branding },
+            conditions: { ...defaultConfig.conditions, ...window.ChatWidgetConfig.conditions },
             socials: { ...defaultConfig.socials, ...window.ChatWidgetConfig.socials },
             style: { ...defaultConfig.style, ...window.ChatWidgetConfig.style }
         } : defaultConfig;
@@ -557,7 +577,10 @@
                         <path d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L173.3 288L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
                     </svg>
                 </button>
-                <img src="${config.branding.logo}" alt="${config.branding.name}">
+                <div class="brand-header-image">
+                    <img src="${config.branding.logo}" alt="${config.branding.name}"></img>
+                    <div class="brand-header-symbol"></div>
+                </div>
                 <div>
                     <span>${config.branding.name}</span>
                     <p style="margin:0px">${config.branding.subText}</p>
@@ -605,6 +628,10 @@
     const textarea = chatContainer.querySelector('textarea');
     const sendButton = chatContainer.querySelector('button[type="submit"]');
     
+    const onlineBubble = chatContainer.querySelector('brand-header-symbol');
+    if (config.conditions.displayOnline == true)
+        onlineBubble.classList.add('online')
+        
     const socialsArea = chatContainer.querySelector('.new-conversation-socials');
     if (config.socials.whatsapp != '')
         socialsArea.innerHTML += `
