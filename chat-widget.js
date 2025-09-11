@@ -31,6 +31,12 @@
             font-family: inherit;
         }
 
+        @media screen and (max-width:37.5rem) {
+            .n8n-chat-widget .chat-container {
+                display: block;
+            }
+        }
+
         .n8n-chat-widget .chat-container.position-left {
             right: auto;
             left: 20px;
