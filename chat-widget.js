@@ -56,7 +56,7 @@
             align-items: baseline;
         }
 
-        .n8n-chat-widget .brand-header-image.online {
+        .n8n-chat-widget .brand-header-image .online {
             background: #53c353;
             border-style: solid;
             border-color: var(--title--color-background);
