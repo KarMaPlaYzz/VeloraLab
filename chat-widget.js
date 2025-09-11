@@ -173,14 +173,14 @@
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: stretch;
-            padding: 0;
+            padding: 1rem 0rem 0rem 0rem;
             margin: 0;
             list-style: none;
         }
         
         .n8n-chat-widget .new-conversation-socials .social {
             flex: 1;
-            padding: 2px 10px 2px 10px;
+            padding: 0.35rem 0rem 0.35rem 0rem;
         }
 
         .n8n-chat-widget .new-conversation-socials .social a {
