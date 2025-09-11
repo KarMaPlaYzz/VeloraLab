@@ -172,7 +172,7 @@
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: stretch;
-            padding: 1rem 0rem 0rem 0rem;
+            padding: .5rem 0rem 0rem 0rem;
             margin: 0;
             list-style: none;
         }
