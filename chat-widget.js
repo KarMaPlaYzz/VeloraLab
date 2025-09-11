@@ -507,7 +507,7 @@
             </button>
         </div>
         <div class="new-conversation">
-            <section>
+            <section style="display: flex; flex-direction: column; align-items: center;">
                 <h2 class="welcome-text">${config.branding.welcomeText}</h2>
                 <button class="new-chat-btn">
                     <svg class="message-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
