@@ -186,6 +186,7 @@
             display: flex;
             color: var(--chat--color-primary);
             text-decoration: none;
+            font-size: 1rem;
             align-items: center;
             flex-wrap: wrap;
             justify-content: space-between;
