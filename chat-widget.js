@@ -797,6 +797,7 @@
                         setTimeout(typeWriter, speed);
                     }
                 }
+                typeWriter()
                 
                 //botMessageDiv.innerHTML = Array.isArray(responseData) ? responseData[0].output : responseData.output;
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -858,6 +859,7 @@
                     setTimeout(typeWriter, speed);
                 }
             }
+            typeWriter()
             
             //botMessageDiv.innerHTML = Array.isArray(data) ? data[0].output : data.output;
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
