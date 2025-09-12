@@ -790,10 +790,12 @@
                 var txt = Array.isArray(responseData) ? responseData[0].output : responseData.output;
                 var speed = 25;
                 
-                if (i < txt.length) {
-                    botMessageDiv.innerHTML += txt.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, speed);
+                function typeWriter() {
+                    if (i < txt.length) {
+                        botMessageDiv.innerHTML += txt.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    }
                 }
                 
                 //botMessageDiv.innerHTML = Array.isArray(responseData) ? responseData[0].output : responseData.output;
@@ -849,10 +851,12 @@
             var txt = Array.isArray(data) ? data[0].output : data.output;
             var speed = 25;
             
-            if (i < txt.length) {
-                botMessageDiv.innerHTML += txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
+            function typeWriter() {
+                if (i < txt.length) {
+                    botMessageDiv.innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
             }
             
             //botMessageDiv.innerHTML = Array.isArray(data) ? data[0].output : data.output;
