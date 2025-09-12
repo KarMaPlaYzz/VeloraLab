@@ -797,6 +797,9 @@
                         setTimeout(typeWriter, speed);
                     }
                 }
+
+                //removes the typing dots first
+                botMessageDiv.innerHTML = ""
                 typeWriter()
                 
                 //botMessageDiv.innerHTML = Array.isArray(responseData) ? responseData[0].output : responseData.output;
@@ -859,6 +862,9 @@
                     setTimeout(typeWriter, speed);
                 }
             }
+            
+            //removes the typing dots first
+            botMessageDiv.innerHTML = ""
             typeWriter()
             
             //botMessageDiv.innerHTML = Array.isArray(data) ? data[0].output : data.output;
