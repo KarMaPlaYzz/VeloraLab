@@ -725,7 +725,7 @@
                 //typingMessageDiv.querySelector('.typing').style.display = 'none';
                 console.log("Bot done...")
     
-                botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
+                botMessageDiv.textContent = Array.isArray(responseData) ? convertLinks(responseData[0].output) : convertLinks(responseData.output);
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             } catch (error) {
                 console.error('Error:', error);
@@ -775,7 +775,7 @@
             //typingMessageDiv.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
             
-            botMessageDiv.textContent = Array.isArray(data) ? data[0].output : data.output;
+            botMessageDiv.textContent = Array.isArray(data) ? convertLinks(data[0].output) : convertLinks(data.output);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
@@ -825,4 +825,20 @@
             chatInterface.classList.remove('active');
         });
     });
+
+    function convertLinks(text) {
+        // Regular expression pattern to match URLs
+        const urlPattern = /((?:https?:\/\/)?(?:www\.)?\w+\.\w+(?:\.\w+)?(?:\/\S*)?)/gi;
+    
+        // Regular expression pattern to match email addresses
+        const emailPattern = /(\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b)/gi;
+    
+        // Replace URLs with clickable links
+        const textWithUrls = text.replace(urlPattern, '<a href="$&" rel="noreferrer" tabindex="0" target="_blank">$&</a>');
+    
+        // Replace email addresses with clickable mailto links
+        const textWithLinks = textWithUrls.replace(emailPattern, '<a href="mailto:$&" rel="noreferrer" tabindex="0" target="_blank">$&</a>');
+    
+        return textWithLinks;
+    }
 })();
