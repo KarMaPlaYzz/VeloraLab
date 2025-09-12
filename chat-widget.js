@@ -290,7 +290,6 @@
         .n8n-chat-widget .chat-message {
             padding: 12px 16px;
             margin: 8px 0;
-            /*border-radius: 12px;*/
             max-width: 80%;
             word-wrap: break-word;
             font-size: 14px;
@@ -301,6 +300,7 @@
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             align-self: flex-end;
+            align-items: center;
             border: none;
             border-radius: 1.5rem 1.5rem 0.5rem 1.5rem;
         }
@@ -311,6 +311,8 @@
             border-radius: 0.5rem 1.5rem 1.5rem 1.5rem;
             color: var(--chat--color-font);
             align-self: flex-start;
+            align-items: center;
+            display:flex;
         }
 
         .n8n-chat-widget .chat-input {
@@ -422,8 +424,8 @@
         .circle
         {
           display: block;
-          height: 10px;
-          width: 10px;
+          height: 8px;
+          width: 8px;
           border-radius: 50%;
           background-color: #8d8d8d;
           margin: 3px;
