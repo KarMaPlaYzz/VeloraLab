@@ -290,7 +290,6 @@
         .n8n-chat-widget .chat-message {
             padding: 12px 16px;
             margin: 8px 0;
-            /*border-radius: 12px;*/
             max-width: 80%;
             word-wrap: break-word;
             font-size: 14px;
@@ -301,6 +300,7 @@
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             align-self: flex-end;
+            align-items: center;
             border: none;
             border-radius: 1.5rem 1.5rem 0.5rem 1.5rem;
         }
@@ -311,6 +311,8 @@
             border-radius: 0.5rem 1.5rem 1.5rem 1.5rem;
             color: var(--chat--color-font);
             align-self: flex-start;
+            align-items: center;
+            display:flex;
         }
 
         .n8n-chat-widget .chat-input {
@@ -418,6 +420,61 @@
         .n8n-chat-widget .chat-footer a:hover {
             opacity: 1;
         }
+
+        .circle
+        {
+          display: block;
+          height: 8px;
+          width: 8px;
+          border-radius: 50%;
+          background-color: #8d8d8d;
+          margin: 3px;
+          
+            &.scaling {
+              animation: typing 1000ms ease-in-out infinite;
+              animation-delay: 3600ms;
+              }
+        
+            &.bouncing{
+              animation: bounce 1000ms ease-in-out infinite;
+              animation-delay: 3600ms;
+              }
+        }
+        
+        .circle:nth-child(1){
+          animation-delay: 0ms;
+          }
+          
+        .circle:nth-child(2){
+          animation-delay: 333ms;
+          }
+          
+        .circle:nth-child(3){
+          animation-delay: 666ms;
+          }
+          
+          
+        @keyframes typing{
+              0%
+                {transform: scale(1)}
+              33%
+                {transform: scale(1)}
+              50%
+                {transform: scale(1.4)}
+              100%
+                {transform: scale(1)}
+            }
+          
+        @keyframes bounce{
+              0%
+                {transform: translateY(0)}
+              33%
+                {transform: translateY(0)}
+              50%
+                {transform: translateY(-10px)}
+              100%
+                {transform: translateY(0)}
+            }
     `;
 
     // Load Basier Circle font
@@ -658,7 +715,11 @@
         `;
 
     //const typingMessageDiv = document.createElement('div');
-    const botTyping = `. . .`;
+    const botTyping = `
+        <span class="circle scaling"></span>
+        <span class="circle scaling"></span>
+        <span class="circle scaling"></span>
+    `;
     
     //typingMessageDiv.className = 'chat-message bot';
     //typingMessageDiv.innerHTML = botTyping;
@@ -706,7 +767,7 @@
             
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'chat-message bot';
-            botMessageDiv.textContent = botTyping;
+            botMessageDiv.innerHTML = botTyping;
             messagesContainer.appendChild(botMessageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
             
@@ -722,10 +783,26 @@
                 const responseData = await response.json();
     
                 // hide bot typing
-                //typingMessageDiv.querySelector('.typing').style.display = 'none';
                 console.log("Bot done...")
     
-                botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
+                //typewriter effect
+                var i = 0;
+                var txt = Array.isArray(responseData) ? responseData[0].output : responseData.output;
+                var speed = 25;
+                
+                function typeWriter() {
+                    if (i < txt.length) {
+                        botMessageDiv.innerHTML += txt.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    }
+                }
+
+                //removes the typing dots first
+                botMessageDiv.innerHTML = ""
+                typeWriter()
+                
+                //botMessageDiv.innerHTML = Array.isArray(responseData) ? responseData[0].output : responseData.output;
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             } catch (error) {
                 console.error('Error:', error);
@@ -751,12 +828,11 @@
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         // add bot typing
-        //typingMessageDiv.querySelector('.typing').style.display = 'block';
         console.log("Bot thinking...")
         
         const botMessageDiv = document.createElement('div');
         botMessageDiv.className = 'chat-message bot';
-        botMessageDiv.textContent = botTyping;
+        botMessageDiv.innerHTML = botTyping;
         messagesContainer.appendChild(botMessageDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
         
@@ -772,10 +848,26 @@
             const data = await response.json();
 
             // hide bot typing
-            //typingMessageDiv.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
+
+            //typewriter effect
+            var i = 0;
+            var txt = Array.isArray(data) ? data[0].output : data.output;
+            var speed = 25;
             
-            botMessageDiv.textContent = Array.isArray(data) ? data[0].output : data.output;
+            function typeWriter() {
+                if (i < txt.length) {
+                    botMessageDiv.innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            
+            //removes the typing dots first
+            botMessageDiv.innerHTML = ""
+            typeWriter()
+            
+            //botMessageDiv.innerHTML = Array.isArray(data) ? data[0].output : data.output;
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
