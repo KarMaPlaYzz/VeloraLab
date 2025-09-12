@@ -294,7 +294,6 @@
             word-wrap: break-word;
             font-size: 14px;
             line-height: 1.5;
-            opacity: 0;
         }
 
         .n8n-chat-widget .chat-message.user {
@@ -304,8 +303,6 @@
             align-items: center;
             border: none;
             border-radius: 1.5rem 1.5rem 0.5rem 1.5rem;
-            opacity: 1;
-            transition: opacity 0.2s ease-in-out;
         }
 
         .n8n-chat-widget .chat-message.bot {
@@ -316,8 +313,6 @@
             align-self: flex-start;
             align-items: center;
             display:flex;
-            opacity: 1;
-            transition: opacity 0.2s ease-in-out;
         }
 
         .n8n-chat-widget .chat-input {
@@ -772,7 +767,6 @@
             
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'chat-message bot';
-            //botMessageDiv.textContent = botTyping;
             botMessageDiv.innerHTML = botTyping;
             messagesContainer.appendChild(botMessageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -789,11 +783,20 @@
                 const responseData = await response.json();
     
                 // hide bot typing
-                //typingMessageDiv.querySelector('.typing').style.display = 'none';
                 console.log("Bot done...")
     
-                //botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
-                botMessageDiv.innerHTML = Array.isArray(responseData) ? responseData[0].output : responseData.output;
+                //typewriter effect
+                var i = 0;
+                var txt = Array.isArray(responseData) ? responseData[0].output : responseData.output;
+                var speed = 25;
+                
+                if (i < txt.length) {
+                    botMessageDiv.innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+                
+                //botMessageDiv.innerHTML = Array.isArray(responseData) ? responseData[0].output : responseData.output;
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             } catch (error) {
                 console.error('Error:', error);
@@ -823,7 +826,6 @@
         
         const botMessageDiv = document.createElement('div');
         botMessageDiv.className = 'chat-message bot';
-        //botMessageDiv.textContent = botTyping;
         botMessageDiv.innerHTML = botTyping;
         messagesContainer.appendChild(botMessageDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -840,11 +842,20 @@
             const data = await response.json();
 
             // hide bot typing
-            //typingMessageDiv.querySelector('.typing').style.display = 'none';
             console.log("Bot done...")
+
+            //typewriter effect
+            var i = 0;
+            var txt = Array.isArray(data) ? data[0].output : data.output;
+            var speed = 25;
             
-            //botMessageDiv.textContent = Array.isArray(data) ? data[0].output : data.output;
-            botMessageDiv.innerHTML = Array.isArray(data) ? data[0].output : data.output;
+            if (i < txt.length) {
+                botMessageDiv.innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+            
+            //botMessageDiv.innerHTML = Array.isArray(data) ? data[0].output : data.output;
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
