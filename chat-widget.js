@@ -339,6 +339,8 @@
             resize: none;
             font-family: inherit;
             font-size: 14px;
+            min-height: 3rem;
+            max-height: 3rem;
         }
 
         .n8n-chat-widget .chat-input textarea::placeholder {
