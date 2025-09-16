@@ -339,7 +339,7 @@
             resize: none;
             font-family: inherit;
             font-size: 14px;
-            min-height: 3rem;
+            min-height: 1.25rem;
             max-height: 3rem;
         }
 
