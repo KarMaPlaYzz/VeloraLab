@@ -629,7 +629,7 @@
             </div>
             <div class="chat-messages">
             </div>
-            <div class="chat-footer hidden">
+            <div class="chat-footer">
                 <a href="${config.branding.poweredBy.link}" target="_blank">${config.branding.poweredBy.text}</a>
             </div>
             <div class="chat-input">
