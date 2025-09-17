@@ -515,7 +515,7 @@
         },
         conditions: {
             displayOnline: 'yes',
-            removePoweredBy, 'no'
+            removePoweredBy: 'no'
         },
         socials: {
             whatsapp: '',
