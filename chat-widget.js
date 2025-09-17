@@ -84,9 +84,9 @@
             border-color: var(--title--color-background);
             border-radius: 9999px;
             position: relative;
-            width: 10px;
-            height: 10px;
-            right: 10px;
+            width: 1rem;
+            height: 1rem;
+            right: 0.625rem;
         }
 
         .n8n-chat-widget .close-button {
