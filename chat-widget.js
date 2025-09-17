@@ -339,8 +339,6 @@
             resize: none;
             font-family: inherit;
             font-size: 14px;
-            min-height: 3rem;
-            max-height: 3rem;
         }
 
         .n8n-chat-widget .chat-input textarea::placeholder {
@@ -408,6 +406,10 @@
             text-align: center;
             /*background: var(--chat-footer--color-background);*/
             border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .n8n-chat-widget .chat-footer.hidden {
+            display: none !important;
         }
 
         .n8n-chat-widget .chat-footer a {
@@ -513,6 +515,7 @@
         },
         conditions: {
             displayOnline: 'yes',
+            removePoweredBy, 'no'
         },
         socials: {
             whatsapp: '',
@@ -626,7 +629,7 @@
             </div>
             <div class="chat-messages">
             </div>
-            <div class="chat-footer">
+            <div class="chat-footer hidden">
                 <a href="${config.branding.poweredBy.link}" target="_blank">${config.branding.poweredBy.text}</a>
             </div>
             <div class="chat-input">
@@ -663,6 +666,10 @@
     const onlineBubble = chatContainer.querySelector('.brand-header-symbol');
     if (config.conditions.displayOnline == 'yes')
         onlineBubble.classList.add('online')
+
+    const chatFooter = chatContainer.querySelector('.chat-footer');
+    if (config.conditions.removePoweredBy == 'yes')
+        chatFooter.classList.add('hidden')
         
     const socialsArea = chatContainer.querySelector('.new-conversation-socials');
     if (config.socials.whatsapp != '')
