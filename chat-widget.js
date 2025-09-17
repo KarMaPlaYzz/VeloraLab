@@ -784,6 +784,7 @@
                 const response = await fetch(config.webhook.url, {
                     method: 'POST',
                     headers: {
+                        'Access-Control-Allow-Origin': '*',
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(initialHelloMessageData)
@@ -849,6 +850,7 @@
             const response = await fetch(config.webhook.url, {
                 method: 'POST',
                 headers: {
+                    'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(messageData)
